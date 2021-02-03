@@ -22,7 +22,10 @@ const Card = ({ title, description, timestamp, id, onDelete }) => {
         <CardDescription>{description}</CardDescription>
         <CardFooter>
           <p>{timestamp}</p>
-          <DeleteBtn onClick={(e) => deleteNote(id)} />
+          <DeleteBtn
+            onClick={(e) => deleteNote(id)}
+            className="btn-delete-task"
+          />
         </CardFooter>
       </CardContainer>
     </Wrapper>

@@ -4,7 +4,9 @@ import { PrimaryButton, ButtonWrapper } from './Button.component';
 const Button = ({ children, clickAction }) => {
   return (
     <ButtonWrapper>
-      <PrimaryButton onClick={clickAction}>{children}</PrimaryButton>
+      <PrimaryButton onClick={clickAction} className="btn-create-task">
+        {children}
+      </PrimaryButton>
     </ButtonWrapper>
   );
 };

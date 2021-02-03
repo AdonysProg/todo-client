@@ -47,6 +47,7 @@ const Modal = ({ show, onClose, onCreate }) => {
             value={title}
             required
             onChange={(e) => setTitle(e.target.value)}
+            className="input-title"
           />
           <ModalDescriptionInput
             placeholder="Description"
@@ -54,12 +55,22 @@ const Modal = ({ show, onClose, onCreate }) => {
             required
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            className="input-description"
           />
           <ModalFooter>
-            <ModalBtn color="#106B0D" type="submit">
+            <ModalBtn
+              color="#106B0D"
+              type="submit"
+              className="btn-confirm-create-task"
+            >
               Create
             </ModalBtn>
-            <ModalBtn color="#690602" onClick={onClose} type="button">
+            <ModalBtn
+              color="#690602"
+              onClick={onClose}
+              type="button"
+              className="cancel-task"
+            >
               Cancel
             </ModalBtn>
           </ModalFooter>
