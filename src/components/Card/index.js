@@ -6,24 +6,20 @@ import {
   CardFooter,
   CardTitle,
   Wrapper,
-  CheckCompleted,
-  CheckLabel,
   DeleteBtn,
 } from './Card.component';
 
-const Card = ({ title, description, finished, timestamp, id }) => {
+const Card = ({ title, description, finished, timestamp, id, onDelete }) => {
   const deleteNote = async () => {
-    await deleteNoteById(id).then((res) => console.log(res));
+    await deleteNoteById(id).then(() => {
+      onDelete();
+    });
   };
   return (
     <Wrapper>
       <CardContainer>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
-        <CheckLabel htmlFor="check">
-          <CheckCompleted id="check" type="checkbox" checked={finished} />
-          Done
-        </CheckLabel>
         <CardFooter>
           <p>{timestamp}</p>
           <DeleteBtn onClick={(e) => deleteNote(id)} />

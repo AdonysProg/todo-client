@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   flex-flow: column;
   padding: 1rem;
   width: 190px;
   background-color: #eee;
   text-align: center;
   transition: all ease-in 0.4s;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 100;
 `;
 export const ModalTitle = styled.h2``;
 export const ModalInput = styled.input`
@@ -46,4 +50,15 @@ export const ModalBtn = styled.button`
 export const ModalFooter = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const Overlay = styled.div`
+  z-index: 10;
+  transition: all ease 0.9s;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;

@@ -14,11 +14,16 @@ function App() {
     getNotes().then((res) => {
       setNote(res.data);
     });
-  }, []);
+  }, [setNote]);
 
   const openModal = () => {
     setModal(true);
-    console.log(modal);
+  };
+
+  const refreshNotes = () => {
+    getNotes().then((res) => {
+      setNote(res.data);
+    });
   };
 
   return (
@@ -28,15 +33,19 @@ function App() {
           key={index}
           title={note.title}
           description={note.description}
-          finished={note.finished}
           timestamp={note.createdAt}
           id={note._id}
+          onDelete={refreshNotes}
         />
       ))}
       <Button clickAction={openModal}>
         <GrAdd size="32px" />
       </Button>
-      <Modal show={modal} />
+      <Modal
+        show={modal}
+        onClose={() => setModal(false)}
+        onCreate={refreshNotes}
+      />
     </Wrapper>
   );
 }
