@@ -9,7 +9,7 @@ import {
   DeleteBtn,
 } from './Card.component';
 
-const Card = ({ title, description, finished, timestamp, id, onDelete }) => {
+const Card = ({ title, description, timestamp, id, onDelete }) => {
   const deleteNote = async () => {
     await deleteNoteById(id).then(() => {
       onDelete();

@@ -8,6 +8,7 @@ import {
   ModalInput,
   ModalFooter,
   Overlay,
+  ModalDescriptionInput,
 } from './Modal.component';
 import { AiOutlineClose } from 'react-icons/ai';
 import { postNote } from '../../api';
@@ -25,6 +26,8 @@ const Modal = ({ show, onClose, onCreate }) => {
       description,
     };
     postNote(data).then((res) => {
+      setDescription('');
+      setTitle('');
       onCreate();
       onClose();
     });
@@ -45,7 +48,7 @@ const Modal = ({ show, onClose, onCreate }) => {
             required
             onChange={(e) => setTitle(e.target.value)}
           />
-          <ModalInput
+          <ModalDescriptionInput
             placeholder="Description"
             type="text"
             required

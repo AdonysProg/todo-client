@@ -26,7 +26,7 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 0.7rem;
-  color: #c3c3c3;
+  color: #060407;
 `;
 
 export const DeleteBtn = styled(BsTrash)`

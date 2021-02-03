@@ -28,16 +28,24 @@ function App() {
 
   return (
     <Wrapper>
-      {note.map((note, index) => (
-        <Card
-          key={index}
-          title={note.title}
-          description={note.description}
-          timestamp={note.createdAt}
-          id={note._id}
-          onDelete={refreshNotes}
-        />
-      ))}
+      {note.map((note, index) => {
+        let date = new Date(note.createdAt);
+        let timestamp = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate()
+        ).toLocaleDateString();
+        return (
+          <Card
+            key={index}
+            title={note.title}
+            description={note.description}
+            timestamp={timestamp}
+            id={note._id}
+            onDelete={refreshNotes}
+          />
+        );
+      })}
       <Button clickAction={openModal}>
         <GrAdd size="32px" />
       </Button>
